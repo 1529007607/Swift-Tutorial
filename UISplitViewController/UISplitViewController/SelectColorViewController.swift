@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension SelectColorViewController {
+extension SelectColorViewController: UISplitViewControllerDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return colors.count
     }
@@ -20,13 +20,21 @@ extension SelectColorViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        collapseDetailViewController = false
         performSegue(withIdentifier: "rowSelect", sender: colors[indexPath.row])
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return collapseDetailViewController
     }
 }
 
 class SelectColorViewController: UITableViewController {
     
     let identifier = "ColorCell"
+    
+    fileprivate var collapseDetailViewController = true
+    
     let colors: [UIColor] = [UIColor.red,
                              UIColor.blue,
                              UIColor.brown,
@@ -49,6 +57,7 @@ class SelectColorViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        splitViewController?.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
     }
     
