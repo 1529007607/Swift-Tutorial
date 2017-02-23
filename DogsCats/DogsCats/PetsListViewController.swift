@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+// MARK: - fetch update & delete data
+
 extension PetsListViewController {
     fileprivate func setupData() {
         let pets = DataParse.fetch()
@@ -23,29 +25,70 @@ extension PetsListViewController {
     }
     
     fileprivate func savePet(_ petVariety: Int) {
-        let dog = Dog()
-        dog.name = "little black"
-        dog.attack = 3
-        dog.blood = 3
-        dog.defense = 3
-        dog.intimacy = 3
-        dog.magic = 3
-        dog.variety = .dog
+        switch petVariety {
+        case PetVariety.dog.rawValue:
+            let dog = Dog()
+            dogs.append(dog)
+            initializePet(dog as Pet, variety: petVariety)
+            DataParse.save(dog.data)
+            break
+        case PetVariety.cat.rawValue:
+            let cat = Cat()
+            cats.append(cat)
+            initializePet(cat as Pet, variety: petVariety)
+            DataParse.save(cat.data)
+            break
+        default:
+            break
+        }
         
-        DataParse.save(dog.data)
-        dogs.append(dog)
         tableView.reloadData()
+    }
+    
+    fileprivate func deleteData(_ indexPath: IndexPath) {
+        switch indexPath.section {
+        case PetVariety.dog.rawValue:
+            let dog = dogs[indexPath.row]
+            DataParse.Delete(dog)
+            dogs.remove(at: indexPath.row)
+            break
+        case PetVariety.cat.rawValue:
+            let cat = cats[indexPath.row]
+            DataParse.Delete(cat)
+            cats.remove(at: indexPath.row)
+            break
+        default:
+            break
+        }
+        
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    private func initializePet(_ pet: Pet, variety: Int) {
+        pet.name = "little black"
+        pet.attack = 3
+        pet.blood = 3
+        pet.defense = 3
+        pet.intimacy = 3
+        pet.magic = 3
+        pet.variety = PetVariety(rawValue: variety)!
+        pet.creationTime = Date()
     }
 }
 
+// MARK: - fields, properties, life cycle & business logic
+
 class PetsListViewController: UITableViewController {
     
-    var dogs: [Dog] = []
-    var cats: [Cat] = []
+    fileprivate var dogs: [Dog] = []
+    fileprivate var cats: [Cat] = []
+    
+    fileprivate var collapseSecondaryController = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        splitViewController?.delegate = self
         setupData()
     }
     
@@ -64,7 +107,44 @@ class PetsListViewController: UITableViewController {
         present(alertController, animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "showPetDetail",
+            let indexPath = tableView.indexPathForSelectedRow,
+            let dest = segue.destination as? UINavigationController,
+            let petDetailVC = dest.topViewController as? PetDetailViewController {
+            
+            switch indexPath.section {
+            case PetVariety.dog.rawValue:
+                petDetailVC.pet = dogs[indexPath.row]
+                                break
+            case PetVariety.cat.rawValue:
+                petDetailVC.pet  = cats[indexPath.row]
+                break
+            default:
+                break
+            }
+            
+        }
+    }
 }
+
+// MARK: - delegate methods
+
+extension PetsListViewController {
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            self.deleteData(indexPath)
+        }
+        
+        return [deleteAction]
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        collapseSecondaryController = false
+    }
+}
+
+// MARK: - dataSource methods
 
 extension PetsListViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -97,23 +177,12 @@ extension PetsListViewController {
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier! == "showPetDetail",
-            let indexPath = tableView.indexPathForSelectedRow,
-            let dest = segue.destination as? UINavigationController,
-            let petDetailVC = dest.topViewController as? PetDetailViewController {
-            
-            switch indexPath.section {
-            case PetVariety.dog.rawValue:
-                petDetailVC.pet = dogs[indexPath.row]
-                break
-            case PetVariety.cat.rawValue:
-                petDetailVC.pet  = cats[indexPath.row]
-                break
-            default:
-                break
-            }
-        
-        }
+}
+
+// MARK: - SplitViewController Delegate
+
+extension PetsListViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return collapseSecondaryController
     }
 }

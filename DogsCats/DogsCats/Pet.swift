@@ -8,20 +8,20 @@
 
 import Foundation
 
-enum PetVariety: Int {
+public enum PetVariety: Int {
     case dog
     case cat
     
     static let allValues: [PetVariety] = [.dog, .cat]
 }
 
-enum PetCharacter: String {
+public enum PetCharacter: String {
     case cowardly
     case mild
     case irritable
 }
 
-enum PetTemperament: String {
+public enum PetTemperament: String {
     case excity
     case happy
     case normal
@@ -29,7 +29,7 @@ enum PetTemperament: String {
     case fury
 }
 
-extension Pet {
+public extension Pet {
     var data: [String: Any] {
         
         return ["attack": attack,
@@ -38,17 +38,19 @@ extension Pet {
                 "blood": blood,
                 "magic": magic,
                 "name": name,
-                "variety": variety.rawValue]
+                "variety": variety.rawValue,
+                "creationTime": creationTime]
     }
 }
 
-class Pet {
+public class Pet {
     
     var attack: Int = 0
     var defense: Int = 0
     var intimacy: Int = 0
     var blood: Int = 0
     var magic: Int = 0
+    var creationTime: Date = Date()
     
     var name: String = "None"
     

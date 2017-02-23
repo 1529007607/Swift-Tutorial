@@ -74,7 +74,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNR-LZ-3sI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-890" y="27"/>
+            <point key="canvasLocation" x="-782" y="18"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F1n-Fz-eh0">
@@ -113,6 +113,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="W7q-Bg-k91"/>
+        <segue reference="9aK-va-hFM"/>
     </inferredMetricsTieBreakers>
 </document>
