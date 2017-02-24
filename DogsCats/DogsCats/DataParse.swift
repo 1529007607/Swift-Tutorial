@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-public class DataParse {
+class DataParse {
     
-    public class func save(_ data: [String: Any]) {
+    class func save(_ data: [String: Any]) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let moc = appDelegate.persistentContainer.viewContext
@@ -25,7 +25,7 @@ public class DataParse {
         }
     }
     
-    public class func fetch() -> [Pet]{
+    class func fetch() -> [Pet]{
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
         
         let moc = appDelegate.persistentContainer.viewContext
@@ -57,7 +57,7 @@ public class DataParse {
         return []
     }
     
-    public class func Delete(_ pet: Pet) {
+    class func Delete(_ pet: Pet) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let moc = appDelegate.persistentContainer.viewContext
