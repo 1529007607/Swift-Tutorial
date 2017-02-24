@@ -9,13 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var topView: UIView!
-    var middleView: UIView!
-    var bottomView: UIView!
-    var firstView: UIView!
-    var secondView: UIView!
-    var thirdView: UIView!
     
     let margin: CGFloat = 80
     
@@ -72,109 +65,119 @@ class ViewController: UIViewController {
     
     var swipeGR: UISwipeGestureRecognizer!
     
-    var viewArr: [UIView]!
+    var viewArr: [UIView] = [] // Using a two-way linked list to save tons of code
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
         
-        topView = UIView(frame: topFrame)
-        middleView = UIView(frame: middleFrame)
-        bottomView = UIView(frame: bottomFrame)
+        let firstView = UIView(frame: topFrame)
+        let secondView = UIView(frame: middleFrame)
+        let thirdView = UIView(frame: bottomFrame)
         
-        firstView = UIView(frame: view.bounds)
-        secondView = UIView(frame: view.bounds)
-        thirdView = UIView(frame: view.bounds)
+        viewArr.append(firstView)
+        viewArr.append(secondView)
+        viewArr.append(thirdView)
         
-        firstView.addSubview(topView)
-        secondView.addSubview(middleView)
-        thirdView.addSubview(bottomView)
+        view.addSubview(viewArr[0])
+        view.insertSubview(viewArr[1], belowSubview: viewArr[0])
+        view.insertSubview(viewArr[2], belowSubview: viewArr[1])
         
-        view.addSubview(firstView)
-        view.insertSubview(secondView, belowSubview: firstView)
-        view.insertSubview(thirdView, belowSubview: secondView)
-        
-        topView.backgroundColor = topColor
-        middleView.backgroundColor = middleColor
-        bottomView.backgroundColor = bottomColor
+        viewArr[0].backgroundColor = topColor
+        viewArr[1].backgroundColor = middleColor
+        viewArr[2].backgroundColor = bottomColor
         
         swipeGR = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(gestureRecognizer:)))
-        swipeGR.direction = .left
-        firstView.addGestureRecognizer(swipeGR)
+        swipeGR.direction = [.left, .right]
+        viewArr[0].addGestureRecognizer(swipeGR)
         
     }
+    
+    private func handleSwipeLeft(gestureRecognizer: UISwipeGestureRecognizer) {
+        if gestureRecognizer.view == viewArr[0] {
+            UIView.animate(withDuration: 0.5,
+                           animations: {
+                            let frame = self.viewArr[0].frame.offsetBy(dx: -self.view.bounds.width, dy: 0)
+                            self.viewArr[0].frame = frame
+                            self.viewArr[1].frame = self.topFrame
+                            self.viewArr[2].frame = self.middleFrame
+                            
+                            self.viewArr[1].backgroundColor = self.topColor
+                            self.viewArr[2].backgroundColor = self.middleColor
+            },
+                           completion: { (finished) in
+                            self.viewArr[0].removeGestureRecognizer(self.swipeGR)
+                            self.viewArr[1].addGestureRecognizer(self.swipeGR)
+                            
+                            self.view.sendSubview(toBack: self.viewArr[0])
+                            self.viewArr[0].frame = self.view.bounds
+                            self.viewArr[0].frame = self.bottomFrame
+                            self.viewArr[0].backgroundColor = self.bottomColor
+            })
+        }
+        
+        if gestureRecognizer.view == viewArr[1] {
+            UIView.animate(withDuration: 0.5,
+                           animations: {
+                            let frame = self.viewArr[1].frame.offsetBy(dx: -self.view.bounds.width, dy: 0)
+                            self.viewArr[1].frame = frame
+                            self.viewArr[2].frame = self.topFrame
+                            self.viewArr[0].frame = self.middleFrame
+                            
+                            self.viewArr[2].backgroundColor = self.topColor
+                            self.viewArr[0].backgroundColor = self.middleColor
+            },
+                           completion: { (finished) in
+                            self.viewArr[1].removeGestureRecognizer(self.swipeGR)
+                            self.viewArr[2].addGestureRecognizer(self.swipeGR)
+                            
+                            self.view.sendSubview(toBack: self.viewArr[1])
+                            self.viewArr[1].frame = self.view.bounds
+                            self.viewArr[1].frame = self.bottomFrame
+                            self.viewArr[1].backgroundColor = self.bottomColor
+            })
+        }
+        
+        if gestureRecognizer.view == viewArr[2] {
+            UIView.animate(withDuration: 0.5,
+                           animations: {
+                            let frame = self.viewArr[2].frame.offsetBy(dx: -self.view.bounds.width, dy: 0)
+                            self.viewArr[2].frame = frame
+                            self.viewArr[0].frame = self.topFrame
+                            self.viewArr[1].frame = self.middleFrame
+                            
+                            self.viewArr[0].backgroundColor = self.topColor
+                            self.viewArr[1].backgroundColor = self.middleColor
+            },
+                           completion: { (finished) in
+                            self.viewArr[2].removeGestureRecognizer(self.swipeGR)
+                            self.viewArr[0].addGestureRecognizer(self.swipeGR)
+                            
+                            self.view.sendSubview(toBack: self.viewArr[2])
+                            self.viewArr[2].frame = self.view.bounds
+                            self.viewArr[2].frame = self.bottomFrame
+                            self.viewArr[2].backgroundColor = self.bottomColor
+            })
+        }
 
+    }
+    
+    private func handleSwipeRight(gestureRecognizer: UISwipeGestureRecognizer) {
+        
+    }
+    
     func handleSwipe(gestureRecognizer: UISwipeGestureRecognizer) {
-        guard gestureRecognizer.direction == .left else {
-            return
+        switch gestureRecognizer.direction.rawValue {
+        case UISwipeGestureRecognizerDirection.left.rawValue:
+            handleSwipeLeft(gestureRecognizer: gestureRecognizer)
+            break
+        case UISwipeGestureRecognizerDirection.right.rawValue:
+            handleSwipeRight(gestureRecognizer: gestureRecognizer)
+            break
+        default:
+            break
         }
         
-        
-        if gestureRecognizer.view == firstView {
-            UIView.animate(withDuration: 0.5,
-                           animations: {
-                            let frame = self.firstView.frame.offsetBy(dx: -self.view.bounds.width, dy: 0)
-                            self.firstView.frame = frame
-                            self.middleView.frame = self.topFrame
-                            self.bottomView.frame = self.middleFrame
-                            
-                            self.middleView.backgroundColor = self.topColor
-                            self.bottomView.backgroundColor = self.middleColor
-            },
-                           completion: { (finished) in
-                            self.firstView.removeGestureRecognizer(self.swipeGR)
-                            self.secondView.addGestureRecognizer(self.swipeGR)
-                            
-                            self.view.sendSubview(toBack: self.firstView)
-                            self.firstView.frame = self.view.bounds
-                            self.topView.frame = self.bottomFrame
-                            self.topView.backgroundColor = self.bottomColor
-            })
-        }
-        
-        if gestureRecognizer.view == secondView {
-            UIView.animate(withDuration: 0.5,
-                           animations: {
-                            let frame = self.secondView.frame.offsetBy(dx: -self.view.bounds.width, dy: 0)
-                            self.secondView.frame = frame
-                            self.bottomView.frame = self.topFrame
-                            self.topView.frame = self.middleFrame
-                            
-                            self.bottomView.backgroundColor = self.topColor
-                            self.topView.backgroundColor = self.middleColor
-            },
-                           completion: { (finished) in
-                            self.secondView.removeGestureRecognizer(self.swipeGR)
-                            self.thirdView.addGestureRecognizer(self.swipeGR)
-                            
-                            self.view.sendSubview(toBack: self.secondView)
-                            self.secondView.frame = self.view.bounds
-                            self.middleView.frame = self.bottomFrame
-                            self.middleView.backgroundColor = self.bottomColor
-            })
-        }
-        
-        if gestureRecognizer.view == thirdView {
-            UIView.animate(withDuration: 0.5,
-                           animations: {
-                            let frame = self.thirdView.frame.offsetBy(dx: -self.view.bounds.width, dy: 0)
-                            self.thirdView.frame = frame
-                            self.topView.frame = self.topFrame
-                            self.middleView.frame = self.middleFrame
-                            
-                            self.topView.backgroundColor = self.topColor
-                            self.middleView.backgroundColor = self.middleColor
-            },
-                           completion: { (finished) in
-                            self.thirdView.removeGestureRecognizer(self.swipeGR)
-                            self.firstView.addGestureRecognizer(self.swipeGR)
-                            
-                            self.view.sendSubview(toBack: self.thirdView)
-                            self.thirdView.frame = self.view.bounds
-                            self.bottomView.frame = self.bottomFrame
-                            self.bottomView.backgroundColor = self.bottomColor
-            })
-        }
         
     }
     
