@@ -63,9 +63,10 @@ class ViewController: UIViewController {
         return UIColor.gray
     }
     
-    var swipeGR: UISwipeGestureRecognizer!
+    var swipeLeft: UISwipeGestureRecognizer!
+    var swipeRight: UISwipeGestureRecognizer!
     
-    var viewArr: [UIView] = [] // Using a two-way linked list to save tons of code
+    var viewList: CircleDoublyLinkedList = CircleDoublyLinkedList<UIView>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,110 +76,96 @@ class ViewController: UIViewController {
         let secondView = UIView(frame: middleFrame)
         let thirdView = UIView(frame: bottomFrame)
         
-        viewArr.append(firstView)
-        viewArr.append(secondView)
-        viewArr.append(thirdView)
+        viewList.append(value: firstView)
+        viewList.append(value: secondView)
+        viewList.append(value: thirdView)
         
-        view.addSubview(viewArr[0])
-        view.insertSubview(viewArr[1], belowSubview: viewArr[0])
-        view.insertSubview(viewArr[2], belowSubview: viewArr[1])
+        view.addSubview(firstView)
+        view.insertSubview(secondView, belowSubview: firstView)
+        view.insertSubview(thirdView, belowSubview: secondView)
         
-        viewArr[0].backgroundColor = topColor
-        viewArr[1].backgroundColor = middleColor
-        viewArr[2].backgroundColor = bottomColor
+        firstView.backgroundColor = topColor
+        secondView.backgroundColor = middleColor
+        thirdView.backgroundColor = bottomColor
         
-        swipeGR = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(gestureRecognizer:)))
-        swipeGR.direction = [.left, .right]
-        viewArr[0].addGestureRecognizer(swipeGR)
+        swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(gestureRecognizer:)))
+        swipeLeft.direction = [.left]
+        firstView.addGestureRecognizer(swipeLeft)
         
+        swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(gestureRecognizer:)))
+        swipeRight.direction = [.right]
+        firstView.addGestureRecognizer(swipeRight)
     }
     
     private func handleSwipeLeft(gestureRecognizer: UISwipeGestureRecognizer) {
-        if gestureRecognizer.view == viewArr[0] {
+        if let currentNode = viewList.start,
+            let previousNode = currentNode.previous,
+            let nextNode = currentNode.next,
+            gestureRecognizer.view == currentNode.value {
             UIView.animate(withDuration: 0.5,
                            animations: {
-                            let frame = self.viewArr[0].frame.offsetBy(dx: -self.view.bounds.width, dy: 0)
-                            self.viewArr[0].frame = frame
-                            self.viewArr[1].frame = self.topFrame
-                            self.viewArr[2].frame = self.middleFrame
+                            let frame = currentNode.value.frame.offsetBy(dx: -self.view.bounds.width, dy: 0)
+                            currentNode.value.frame = frame
+                            nextNode.value.frame = self.topFrame
+                            previousNode.value.frame = self.middleFrame
                             
-                            self.viewArr[1].backgroundColor = self.topColor
-                            self.viewArr[2].backgroundColor = self.middleColor
+                            nextNode.value.backgroundColor = self.topColor
+                            previousNode.value.backgroundColor = self.middleColor
             },
                            completion: { (finished) in
-                            self.viewArr[0].removeGestureRecognizer(self.swipeGR)
-                            self.viewArr[1].addGestureRecognizer(self.swipeGR)
+                            currentNode.value.removeGestureRecognizer(self.swipeLeft)
+                            nextNode.value.addGestureRecognizer(self.swipeLeft)
+                            currentNode.value.removeGestureRecognizer(self.swipeRight)
+                            nextNode.value.addGestureRecognizer(self.swipeRight)
                             
-                            self.view.sendSubview(toBack: self.viewArr[0])
-                            self.viewArr[0].frame = self.view.bounds
-                            self.viewArr[0].frame = self.bottomFrame
-                            self.viewArr[0].backgroundColor = self.bottomColor
+                            self.view.sendSubview(toBack: currentNode.value)
+                            currentNode.value.frame = self.bottomFrame
+                            currentNode.value.backgroundColor = self.bottomColor
+                            self.viewList.start = currentNode.next
             })
         }
-        
-        if gestureRecognizer.view == viewArr[1] {
-            UIView.animate(withDuration: 0.5,
-                           animations: {
-                            let frame = self.viewArr[1].frame.offsetBy(dx: -self.view.bounds.width, dy: 0)
-                            self.viewArr[1].frame = frame
-                            self.viewArr[2].frame = self.topFrame
-                            self.viewArr[0].frame = self.middleFrame
-                            
-                            self.viewArr[2].backgroundColor = self.topColor
-                            self.viewArr[0].backgroundColor = self.middleColor
-            },
-                           completion: { (finished) in
-                            self.viewArr[1].removeGestureRecognizer(self.swipeGR)
-                            self.viewArr[2].addGestureRecognizer(self.swipeGR)
-                            
-                            self.view.sendSubview(toBack: self.viewArr[1])
-                            self.viewArr[1].frame = self.view.bounds
-                            self.viewArr[1].frame = self.bottomFrame
-                            self.viewArr[1].backgroundColor = self.bottomColor
-            })
-        }
-        
-        if gestureRecognizer.view == viewArr[2] {
-            UIView.animate(withDuration: 0.5,
-                           animations: {
-                            let frame = self.viewArr[2].frame.offsetBy(dx: -self.view.bounds.width, dy: 0)
-                            self.viewArr[2].frame = frame
-                            self.viewArr[0].frame = self.topFrame
-                            self.viewArr[1].frame = self.middleFrame
-                            
-                            self.viewArr[0].backgroundColor = self.topColor
-                            self.viewArr[1].backgroundColor = self.middleColor
-            },
-                           completion: { (finished) in
-                            self.viewArr[2].removeGestureRecognizer(self.swipeGR)
-                            self.viewArr[0].addGestureRecognizer(self.swipeGR)
-                            
-                            self.view.sendSubview(toBack: self.viewArr[2])
-                            self.viewArr[2].frame = self.view.bounds
-                            self.viewArr[2].frame = self.bottomFrame
-                            self.viewArr[2].backgroundColor = self.bottomColor
-            })
-        }
-
     }
     
     private func handleSwipeRight(gestureRecognizer: UISwipeGestureRecognizer) {
-        
+        if let currentNode = viewList.start,
+            let previousNode = currentNode.previous,
+            let nextNode = currentNode.next,
+            gestureRecognizer.view == currentNode.value {
+            UIView.animate(withDuration: 0.5,
+                           animations: {
+                            let frame = previousNode.value.frame.offsetBy(dx: self.view.bounds.width, dy: 0)
+                            previousNode.value.frame = frame
+                            nextNode.value.frame = self.bottomFrame
+                            currentNode.value.frame = self.middleFrame
+                            
+                            nextNode.value.backgroundColor = self.bottomColor
+                            currentNode.value.backgroundColor = self.middleColor
+            },
+                           completion: { (finished) in
+                            currentNode.value.removeGestureRecognizer(self.swipeRight)
+                            previousNode.value.addGestureRecognizer(self.swipeRight)
+                            currentNode.value.removeGestureRecognizer(self.swipeLeft)
+                            previousNode.value.addGestureRecognizer(self.swipeLeft)
+                            
+                            self.view.bringSubview(toFront: previousNode.value)
+                            previousNode.value.frame = self.topFrame
+                            previousNode.value.backgroundColor = self.topColor
+                            self.viewList.start = currentNode.previous
+            })
+        }
     }
     
     func handleSwipe(gestureRecognizer: UISwipeGestureRecognizer) {
-        switch gestureRecognizer.direction.rawValue {
-        case UISwipeGestureRecognizerDirection.left.rawValue:
+        switch gestureRecognizer.direction {
+        case UISwipeGestureRecognizerDirection.left:
             handleSwipeLeft(gestureRecognizer: gestureRecognizer)
             break
-        case UISwipeGestureRecognizerDirection.right.rawValue:
+        case UISwipeGestureRecognizerDirection.right:
             handleSwipeRight(gestureRecognizer: gestureRecognizer)
             break
         default:
             break
         }
-        
-        
     }
     
 }

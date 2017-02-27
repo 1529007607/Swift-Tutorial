@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40C33591E63C6BD00F25EBE /* TwoWayLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C33581E63C6BD00F25EBE /* TwoWayLinkedList.swift */; };
+		E40C33871E641FB300F25EBE /* CircleDoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C33861E641FB300F25EBE /* CircleDoublyLinkedList.swift */; };
 		E4E5B9ED1E5FD83A005FC261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5B9EC1E5FD83A005FC261 /* AppDelegate.swift */; };
 		E4E5B9EF1E5FD83A005FC261 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5B9EE1E5FD83A005FC261 /* ViewController.swift */; };
 		E4E5B9F21E5FD83A005FC261 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E5B9F01E5FD83A005FC261 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E40C33581E63C6BD00F25EBE /* TwoWayLinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoWayLinkedList.swift; sourceTree = "<group>"; };
+		E40C33861E641FB300F25EBE /* CircleDoublyLinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleDoublyLinkedList.swift; sourceTree = "<group>"; };
 		E4E5B9E91E5FD83A005FC261 /* MagicAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E5B9EC1E5FD83A005FC261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4E5B9EE1E5FD83A005FC261 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E40C33881E644B8000F25EBE /* LinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				E40C33581E63C6BD00F25EBE /* TwoWayLinkedList.swift */,
+				E40C33861E641FB300F25EBE /* CircleDoublyLinkedList.swift */,
+			);
+			name = LinkedList;
+			sourceTree = "<group>";
+		};
 		E4E5B9E01E5FD83A005FC261 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +92,7 @@
 			children = (
 				E4E5B9EC1E5FD83A005FC261 /* AppDelegate.swift */,
 				E4E5B9EE1E5FD83A005FC261 /* ViewController.swift */,
+				E40C33881E644B8000F25EBE /* LinkedList */,
 				E4E5B9F01E5FD83A005FC261 /* Main.storyboard */,
 				E4E5B9F31E5FD83A005FC261 /* Assets.xcassets */,
 				E4E5B9F51E5FD83A005FC261 /* LaunchScreen.storyboard */,
@@ -199,8 +213,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40C33591E63C6BD00F25EBE /* TwoWayLinkedList.swift in Sources */,
 				E4E5B9EF1E5FD83A005FC261 /* ViewController.swift in Sources */,
 				E4E5B9ED1E5FD83A005FC261 /* AppDelegate.swift in Sources */,
+				E40C33871E641FB300F25EBE /* CircleDoublyLinkedList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +422,7 @@
 				E4E5BA081E5FD83A005FC261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4E5BA091E5FD83A005FC261 /* Build configuration list for PBXNativeTarget "MagicAnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +431,7 @@
 				E4E5BA0B1E5FD83A005FC261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -21,16 +21,17 @@ class MagicAnimationTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCircleDoublyLinkedList() {
+        let circle = CircleDoublyLinkedList<Int>()
+        circle.append(value: 0)
+        circle.append(value: 1)
+        circle.append(value: 2)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testLinkedList() {
+        let dogBreeds = LinkedList<Int>()
+        dogBreeds.append(value: 1)
+        dogBreeds.append(value: 2)
+        dogBreeds.append(value: 3)
     }
-    
 }
