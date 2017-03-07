@@ -65,8 +65,9 @@ class ViewController: UIViewController {
     
     var swipeLeft: UISwipeGestureRecognizer!
     var swipeRight: UISwipeGestureRecognizer!
+    var pan: UIPanGestureRecognizer!
     
-    var viewList: CircleDoublyLinkedList = CircleDoublyLinkedList<UIView>()
+    var viewList: CircularDoublyLinkedList = CircularDoublyLinkedList<UIView>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,15 +89,41 @@ class ViewController: UIViewController {
         secondView.backgroundColor = middleColor
         thirdView.backgroundColor = bottomColor
         
-        swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(gestureRecognizer:)))
-        swipeLeft.direction = [.left]
-        firstView.addGestureRecognizer(swipeLeft)
+//        swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(gestureRecognizer:)))
+//        swipeLeft.direction = [.left]
+//        firstView.addGestureRecognizer(swipeLeft)
+//        
+//        swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(gestureRecognizer:)))
+//        swipeRight.direction = [.right]
+//        firstView.addGestureRecognizer(swipeRight)
         
-        swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(gestureRecognizer:)))
-        swipeRight.direction = [.right]
-        firstView.addGestureRecognizer(swipeRight)
+        pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)))
+        firstView.addGestureRecognizer(pan)
     }
     
+    func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
+        let translation = gestureRecognizer.translation(in: view)
+        gestureRecognizer.setTranslation(CGPoint.zero, in: view)
+        print(translation)
+        
+        if let panV = gestureRecognizer.view {
+            panV.center = CGPoint(x: panV.center.x + translation.x, y: panV.center.y)
+            panV.isMultipleTouchEnabled = true
+            panV.isUserInteractionEnabled = true
+            
+            switch gestureRecognizer.state {
+            case .began:
+                break
+            case .ended:
+                break
+            case .changed:
+                break
+            default:
+                break
+            }
+        }
+    }
+        
     private func handleSwipeLeft(gestureRecognizer: UISwipeGestureRecognizer) {
         if let currentNode = viewList.start,
             let previousNode = currentNode.previous,

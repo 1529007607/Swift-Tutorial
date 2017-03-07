@@ -8,7 +8,8 @@
 
 import Foundation
 
-class CircleDoublyLinkedList<T> {
+//The bidirectional circular linked list
+class CircularDoublyLinkedList<T> {
     var start: Node<T>?
     var end: Node<T>?
     var count = 0
