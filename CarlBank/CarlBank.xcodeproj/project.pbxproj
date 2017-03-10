@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4AC4A171E6ECA590070003F /* UIColor+CommonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC4A161E6ECA590070003F /* UIColor+CommonColor.swift */; };
+		E4AC4A1A1E6ECF960070003F /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC4A191E6ECF960070003F /* Foundation+Extension.swift */; };
+		E4AC4A1C1E6ED39B0070003F /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC4A1B1E6ED39B0070003F /* NewTransactionView.swift */; };
 		E4C4378B1E6D009B00F414B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C4378A1E6D009B00F414B5 /* AppDelegate.swift */; };
 		E4C437901E6D009B00F414B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C4378E1E6D009B00F414B5 /* Main.storyboard */; };
 		E4C437921E6D009B00F414B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C437911E6D009B00F414B5 /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E4AC4A161E6ECA590070003F /* UIColor+CommonColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+CommonColor.swift"; sourceTree = "<group>"; };
+		E4AC4A191E6ECF960070003F /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
+		E4AC4A1B1E6ED39B0070003F /* NewTransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
 		E4C437871E6D009B00F414B5 /* CarlBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarlBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C4378A1E6D009B00F414B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4C4378F1E6D009B00F414B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +76,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4AC4A121E6EA9AB0070003F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				E4C437AA1E6D00BA00F414B5 /* Transaction.swift */,
+				E4C437AC1E6D01BE00F414B5 /* Account.swift */,
+				E4AC4A191E6ECF960070003F /* Foundation+Extension.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		E4AC4A131E6EA9C20070003F /* modelController */ = {
+			isa = PBXGroup;
+			children = (
+				E4C437AE1E6D06F000F414B5 /* StorageController.swift */,
+				E4C437B01E6D103B00F414B5 /* StateController.swift */,
+			);
+			name = modelController;
+			sourceTree = "<group>";
+		};
+		E4AC4A141E6EA9CE0070003F /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				E4C437B21E6D3A4A00F414B5 /* AccountsViewController.swift */,
+				E4C437B41E6D3A6200F414B5 /* CreateAccountViewController.swift */,
+				E4C437B61E6D3A7100F414B5 /* TransactionsViewController.swift */,
+				E4C437B81E6D3A7F00F414B5 /* CreateTransactionViewController.swift */,
+			);
+			name = viewController;
+			sourceTree = "<group>";
+		};
+		E4AC4A151E6EA9DF0070003F /* supports */ = {
+			isa = PBXGroup;
+			children = (
+				E4C4378A1E6D009B00F414B5 /* AppDelegate.swift */,
+				E4C437911E6D009B00F414B5 /* Assets.xcassets */,
+				E4C437931E6D009B00F414B5 /* LaunchScreen.storyboard */,
+				E4C437961E6D009B00F414B5 /* Info.plist */,
+			);
+			name = supports;
+			sourceTree = "<group>";
+		};
+		E4AC4A181E6ECA750070003F /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC4A161E6ECA590070003F /* UIColor+CommonColor.swift */,
+				E4AC4A1B1E6ED39B0070003F /* NewTransactionView.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		E4C4377E1E6D009B00F414B5 = {
 			isa = PBXGroup;
 			children = (
@@ -91,19 +147,12 @@
 		E4C437891E6D009B00F414B5 /* CarlBank */ = {
 			isa = PBXGroup;
 			children = (
-				E4C4378A1E6D009B00F414B5 /* AppDelegate.swift */,
+				E4AC4A151E6EA9DF0070003F /* supports */,
+				E4AC4A181E6ECA750070003F /* view */,
+				E4AC4A141E6EA9CE0070003F /* viewController */,
+				E4AC4A131E6EA9C20070003F /* modelController */,
+				E4AC4A121E6EA9AB0070003F /* model */,
 				E4C4378E1E6D009B00F414B5 /* Main.storyboard */,
-				E4C437911E6D009B00F414B5 /* Assets.xcassets */,
-				E4C437931E6D009B00F414B5 /* LaunchScreen.storyboard */,
-				E4C437961E6D009B00F414B5 /* Info.plist */,
-				E4C437AA1E6D00BA00F414B5 /* Transaction.swift */,
-				E4C437AC1E6D01BE00F414B5 /* Account.swift */,
-				E4C437AE1E6D06F000F414B5 /* StorageController.swift */,
-				E4C437B01E6D103B00F414B5 /* StateController.swift */,
-				E4C437B21E6D3A4A00F414B5 /* AccountsViewController.swift */,
-				E4C437B41E6D3A6200F414B5 /* CreateAccountViewController.swift */,
-				E4C437B61E6D3A7100F414B5 /* TransactionsViewController.swift */,
-				E4C437B81E6D3A7F00F414B5 /* CreateTransactionViewController.swift */,
 			);
 			path = CarlBank;
 			sourceTree = "<group>";
@@ -220,10 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AC4A171E6ECA590070003F /* UIColor+CommonColor.swift in Sources */,
+				E4AC4A1A1E6ECF960070003F /* Foundation+Extension.swift in Sources */,
 				E4C437B51E6D3A6200F414B5 /* CreateAccountViewController.swift in Sources */,
 				E4C437B11E6D103B00F414B5 /* StateController.swift in Sources */,
 				E4C437AD1E6D01BE00F414B5 /* Account.swift in Sources */,
 				E4C4378B1E6D009B00F414B5 /* AppDelegate.swift in Sources */,
+				E4AC4A1C1E6ED39B0070003F /* NewTransactionView.swift in Sources */,
 				E4C437AB1E6D00BA00F414B5 /* Transaction.swift in Sources */,
 				E4C437B31E6D3A4A00F414B5 /* AccountsViewController.swift in Sources */,
 				E4C437AF1E6D06F000F414B5 /* StorageController.swift in Sources */,
@@ -434,6 +486,7 @@
 				E4C437A61E6D009B00F414B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4C437A71E6D009B00F414B5 /* Build configuration list for PBXNativeTarget "CarlBankTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +495,7 @@
 				E4C437A91E6D009B00F414B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

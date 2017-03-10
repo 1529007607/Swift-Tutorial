@@ -6,7 +6,7 @@
 //  Copyright © 2017 Carl Lee. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum TransactionCategory: String {
     case income
@@ -15,6 +15,29 @@ enum TransactionCategory: String {
     case home
     case transport
     case fun
+}
+
+extension TransactionCategory {
+    struct Appearance {
+        let color: UIColor
+    }
+    
+    var appearance: Appearance {
+        switch self {
+        case .income:
+            return Appearance(color: .green)
+        case .groceries:
+            return Appearance(color: .blue)
+        case .utilities:
+            return Appearance(color: .brown)
+        case .home:
+            return Appearance(color: .cyan)
+        case .transport:
+            return Appearance(color: .magenta)
+        case .fun:
+            return Appearance(color: .purple)
+        }
+    }
 }
 
 struct Transaction {

@@ -9,5 +9,8 @@
 import UIKit
 
 class CreateAccountViewController: UIViewController {
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var bankTextField: UITextField!
+    @IBOutlet weak var numberTextField: UITextField!
     
 }
