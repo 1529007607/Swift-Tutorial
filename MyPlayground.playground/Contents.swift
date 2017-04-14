@@ -3,8 +3,25 @@
 import UIKit
 import PlaygroundSupport
 
-
-var j = 2
-for i in 0..<5 {
-    j += j * i
+class AbstractClass: NSCoding {
+    required init() {
+        
+    }
+    
+    required convenience init(wkt: String) {
+        self.init()
+        self.wkt = wkt
+    }
+    
+    var wkt: String?
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(wkt, forKey: "")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+    }
 }
+
+

@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E43CF9E31E835EE400534CB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43CF9E21E835EE400534CB2 /* AppDelegate.swift */; };
+		E43CF9E51E835EE400534CB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43CF9E41E835EE400534CB2 /* ViewController.swift */; };
+		E43CF9E81E835EE400534CB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43CF9E61E835EE400534CB2 /* Main.storyboard */; };
+		E43CF9EB1E835EE400534CB2 /* GeometryDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E43CF9E91E835EE400534CB2 /* GeometryDemo.xcdatamodeld */; };
+		E43CF9ED1E835EE400534CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43CF9EC1E835EE400534CB2 /* Assets.xcassets */; };
+		E43CF9F01E835EE400534CB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43CF9EE1E835EE400534CB2 /* LaunchScreen.storyboard */; };
+		E43CF9FB1E835EE400534CB2 /* GeometryDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43CF9FA1E835EE400534CB2 /* GeometryDemoTests.swift */; };
+		E43CFA061E835F0700534CB2 /* GeometryLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CFA051E835F0700534CB2 /* GeometryLib.framework */; };
+		E43CFA071E835F0700534CB2 /* GeometryLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E43CFA051E835F0700534CB2 /* GeometryLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E43CF9F71E835EE400534CB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E43CF9D71E835EE400534CB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E43CF9DE1E835EE400534CB2;
+			remoteInfo = GeometryDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E43CFA081E835F0700534CB2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E43CFA071E835F0700534CB2 /* GeometryLib.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E43CF9DF1E835EE400534CB2 /* GeometryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeometryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E43CF9E21E835EE400534CB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E43CF9E41E835EE400534CB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E43CF9E71E835EE400534CB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E43CF9EA1E835EE400534CB2 /* GeometryDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GeometryDemo.xcdatamodel; sourceTree = "<group>"; };
+		E43CF9EC1E835EE400534CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E43CF9EF1E835EE400534CB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E43CF9F11E835EE400534CB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E43CF9F61E835EE400534CB2 /* GeometryDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeometryDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E43CF9FA1E835EE400534CB2 /* GeometryDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryDemoTests.swift; sourceTree = "<group>"; };
+		E43CF9FC1E835EE400534CB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E43CFA051E835F0700534CB2 /* GeometryLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GeometryLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E43CF9DC1E835EE400534CB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E43CFA061E835F0700534CB2 /* GeometryLib.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E43CF9F31E835EE400534CB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E43CF9D61E835EE400534CB2 = {
+			isa = PBXGroup;
+			children = (
+				E43CFA091E835F1B00534CB2 /* Framework */,
+				E43CF9E11E835EE400534CB2 /* GeometryDemo */,
+				E43CF9F91E835EE400534CB2 /* GeometryDemoTests */,
+				E43CF9E01E835EE400534CB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E43CF9E01E835EE400534CB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E43CF9DF1E835EE400534CB2 /* GeometryDemo.app */,
+				E43CF9F61E835EE400534CB2 /* GeometryDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E43CF9E11E835EE400534CB2 /* GeometryDemo */ = {
+			isa = PBXGroup;
+			children = (
+				E43CF9E21E835EE400534CB2 /* AppDelegate.swift */,
+				E43CF9E41E835EE400534CB2 /* ViewController.swift */,
+				E43CF9E61E835EE400534CB2 /* Main.storyboard */,
+				E43CF9EC1E835EE400534CB2 /* Assets.xcassets */,
+				E43CF9EE1E835EE400534CB2 /* LaunchScreen.storyboard */,
+				E43CF9F11E835EE400534CB2 /* Info.plist */,
+				E43CF9E91E835EE400534CB2 /* GeometryDemo.xcdatamodeld */,
+			);
+			path = GeometryDemo;
+			sourceTree = "<group>";
+		};
+		E43CF9F91E835EE400534CB2 /* GeometryDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				E43CF9FA1E835EE400534CB2 /* GeometryDemoTests.swift */,
+				E43CF9FC1E835EE400534CB2 /* Info.plist */,
+			);
+			path = GeometryDemoTests;
+			sourceTree = "<group>";
+		};
+		E43CFA091E835F1B00534CB2 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				E43CFA051E835F0700534CB2 /* GeometryLib.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E43CF9DE1E835EE400534CB2 /* GeometryDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E43CF9FF1E835EE500534CB2 /* Build configuration list for PBXNativeTarget "GeometryDemo" */;
+			buildPhases = (
+				E43CF9DB1E835EE400534CB2 /* Sources */,
+				E43CF9DC1E835EE400534CB2 /* Frameworks */,
+				E43CF9DD1E835EE400534CB2 /* Resources */,
+				E43CFA081E835F0700534CB2 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeometryDemo;
+			productName = GeometryDemo;
+			productReference = E43CF9DF1E835EE400534CB2 /* GeometryDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E43CF9F51E835EE400534CB2 /* GeometryDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E43CFA021E835EE500534CB2 /* Build configuration list for PBXNativeTarget "GeometryDemoTests" */;
+			buildPhases = (
+				E43CF9F21E835EE400534CB2 /* Sources */,
+				E43CF9F31E835EE400534CB2 /* Frameworks */,
+				E43CF9F41E835EE400534CB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E43CF9F81E835EE400534CB2 /* PBXTargetDependency */,
+			);
+			name = GeometryDemoTests;
+			productName = GeometryDemoTests;
+			productReference = E43CF9F61E835EE400534CB2 /* GeometryDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E43CF9D71E835EE400534CB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Carl Lee";
+				TargetAttributes = {
+					E43CF9DE1E835EE400534CB2 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					E43CF9F51E835EE400534CB2 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E43CF9DE1E835EE400534CB2;
+					};
+				};
+			};
+			buildConfigurationList = E43CF9DA1E835EE400534CB2 /* Build configuration list for PBXProject "GeometryDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E43CF9D61E835EE400534CB2;
+			productRefGroup = E43CF9E01E835EE400534CB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E43CF9DE1E835EE400534CB2 /* GeometryDemo */,
+				E43CF9F51E835EE400534CB2 /* GeometryDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E43CF9DD1E835EE400534CB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E43CF9F01E835EE400534CB2 /* LaunchScreen.storyboard in Resources */,
+				E43CF9ED1E835EE400534CB2 /* Assets.xcassets in Resources */,
+				E43CF9E81E835EE400534CB2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E43CF9F41E835EE400534CB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E43CF9DB1E835EE400534CB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E43CF9EB1E835EE400534CB2 /* GeometryDemo.xcdatamodeld in Sources */,
+				E43CF9E51E835EE400534CB2 /* ViewController.swift in Sources */,
+				E43CF9E31E835EE400534CB2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E43CF9F21E835EE400534CB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E43CF9FB1E835EE400534CB2 /* GeometryDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E43CF9F81E835EE400534CB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E43CF9DE1E835EE400534CB2 /* GeometryDemo */;
+			targetProxy = E43CF9F71E835EE400534CB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E43CF9E61E835EE400534CB2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E43CF9E71E835EE400534CB2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E43CF9EE1E835EE400534CB2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E43CF9EF1E835EE400534CB2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E43CF9FD1E835EE500534CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E43CF9FE1E835EE500534CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E43CFA001E835EE500534CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GeometryDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pasasoft.GeometryDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E43CFA011E835EE500534CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GeometryDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pasasoft.GeometryDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E43CFA031E835EE500534CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GeometryDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pasasoft.GeometryDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeometryDemo.app/GeometryDemo";
+			};
+			name = Debug;
+		};
+		E43CFA041E835EE500534CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GeometryDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pasasoft.GeometryDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeometryDemo.app/GeometryDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E43CF9DA1E835EE400534CB2 /* Build configuration list for PBXProject "GeometryDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E43CF9FD1E835EE500534CB2 /* Debug */,
+				E43CF9FE1E835EE500534CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E43CF9FF1E835EE500534CB2 /* Build configuration list for PBXNativeTarget "GeometryDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E43CFA001E835EE500534CB2 /* Debug */,
+				E43CFA011E835EE500534CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E43CFA021E835EE500534CB2 /* Build configuration list for PBXNativeTarget "GeometryDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E43CFA031E835EE500534CB2 /* Debug */,
+				E43CFA041E835EE500534CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E43CF9E91E835EE400534CB2 /* GeometryDemo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E43CF9EA1E835EE400534CB2 /* GeometryDemo.xcdatamodel */,
+			);
+			currentVersion = E43CF9EA1E835EE400534CB2 /* GeometryDemo.xcdatamodel */;
+			path = GeometryDemo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E43CF9D71E835EE400534CB2 /* Project object */;
+}

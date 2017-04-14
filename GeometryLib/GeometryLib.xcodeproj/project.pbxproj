@@ -420,6 +420,7 @@
 				E4C437761E6CFD7300F414B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4C437771E6CFD7300F414B5 /* Build configuration list for PBXNativeTarget "GeometryLibTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +429,7 @@
 				E4C437791E6CFD7300F414B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
