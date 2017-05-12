@@ -9,24 +9,46 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    let queue = DispatchQueue.init(label: "com.TestDemo")
+    
+    lazy var label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        let str = "#Hello#, play#gr#ound"
+        let arr = str.components(separatedBy: "#")
+        let attrsStr = NSMutableAttributedString(string: str)
+        var index = 0
+        for (i, s) in arr.enumerated() {
+            var attrs = [String: Any]()
+            if i % 2 == 0 {
+                
+            } else {
+                attrs[NSForegroundColorAttributeName] = UIColor.red
+            }
+            let range = NSRange(location: index, length: s.characters.count)
+            attrsStr.addAttributes(attrs, range: range)
+            index += s.characters.count + 1
+        }
+        
+        label.attributedText = attrsStr
+        return label
+    }()
+    
+    func setupViews() {
+        view.addSubview(label)
+    }
+    
+    func setupConstraints() {
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": label]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": label]))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        queue.async {
-            NSLog("%@", Thread.current)
-        }
-        
-        DispatchQueue.global().async {
-            NSLog("%@", Thread.current)
-        }
-        
-        DispatchQueue.main.async {
-            NSLog("%@", Thread.current)
-        }
+        setupViews()
+        setupConstraints()
     }
 
     override func didReceiveMemoryWarning() {

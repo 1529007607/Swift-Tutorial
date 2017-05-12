@@ -8,9 +8,9 @@
 
 import Foundation
 
-final class FileStatistics {
+final class FileStatistics: CodeStatistics {
     typealias LineByLineReader = StreamReader
-    private lazy var lineByLineReader: LineByLineReader? = {
+    fileprivate lazy var lineByLineReader: LineByLineReader? = {
         return LineByLineReader(path: self.path)
     }()
     
@@ -62,7 +62,9 @@ final class FileStatistics {
         }
         return count
     }
-    
+}
+
+extension FileStatistics: CodeStatisticsLifeCycle {
     func load() {
         lineByLineReader = LineByLineReader(path: self.path)
     }

@@ -10,6 +10,8 @@
 		E4F68E271EB0743B00301DAA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F68E261EB0743B00301DAA /* main.swift */; };
 		E4F68E2E1EB074B500301DAA /* FileStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F68E2D1EB074B500301DAA /* FileStatistics.swift */; };
 		E4F68E371EB0806700301DAA /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F68E361EB0806700301DAA /* StreamReader.swift */; };
+		E4F68E4C1EB1D5CE00301DAA /* CodeStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F68E4B1EB1D5CE00301DAA /* CodeStatistics.swift */; };
+		E4F68E4E1EB1D68200301DAA /* ProjectStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F68E4D1EB1D68200301DAA /* ProjectStatistics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,8 @@
 		E4F68E261EB0743B00301DAA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E4F68E2D1EB074B500301DAA /* FileStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStatistics.swift; sourceTree = "<group>"; };
 		E4F68E361EB0806700301DAA /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
+		E4F68E4B1EB1D5CE00301DAA /* CodeStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeStatistics.swift; sourceTree = "<group>"; };
+		E4F68E4D1EB1D68200301DAA /* ProjectStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatistics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				E4F68E261EB0743B00301DAA /* main.swift */,
 				E4F68E2D1EB074B500301DAA /* FileStatistics.swift */,
 				E4F68E361EB0806700301DAA /* StreamReader.swift */,
+				E4F68E4B1EB1D5CE00301DAA /* CodeStatistics.swift */,
+				E4F68E4D1EB1D68200301DAA /* ProjectStatistics.swift */,
 			);
 			path = CodeStatistics;
 			sourceTree = "<group>";
@@ -127,7 +133,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F68E371EB0806700301DAA /* StreamReader.swift in Sources */,
+				E4F68E4C1EB1D5CE00301DAA /* CodeStatistics.swift in Sources */,
 				E4F68E2E1EB074B500301DAA /* FileStatistics.swift in Sources */,
+				E4F68E4E1EB1D68200301DAA /* ProjectStatistics.swift in Sources */,
 				E4F68E271EB0743B00301DAA /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +268,7 @@
 				E4F68E2C1EB0743B00301DAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
