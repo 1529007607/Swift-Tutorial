@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E44FBBC31EC9A7830046A359 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44FBBC21EC9A7830046A359 /* Model.swift */; };
 		E4FD30D01E727E8D00724552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD30CF1E727E8D00724552 /* AppDelegate.swift */; };
 		E4FD30D21E727E8D00724552 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD30D11E727E8D00724552 /* ViewController.swift */; };
 		E4FD30D51E727E8D00724552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FD30D31E727E8D00724552 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E44FBBC21EC9A7830046A359 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E4FD30CC1E727E8D00724552 /* TestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FD30CF1E727E8D00724552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4FD30D11E727E8D00724552 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				E4FD30CF1E727E8D00724552 /* AppDelegate.swift */,
 				E4FD30D11E727E8D00724552 /* ViewController.swift */,
+				E44FBBC21EC9A7830046A359 /* Model.swift */,
 				E4FD30D31E727E8D00724552 /* Main.storyboard */,
 				E4FD30D61E727E8D00724552 /* Assets.xcassets */,
 				E4FD30D81E727E8D00724552 /* LaunchScreen.storyboard */,
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44FBBC31EC9A7830046A359 /* Model.swift in Sources */,
 				E4FD30D21E727E8D00724552 /* ViewController.swift in Sources */,
 				E4FD30D01E727E8D00724552 /* AppDelegate.swift in Sources */,
 			);
@@ -406,6 +410,7 @@
 				E4FD30EB1E727E8D00724552 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4FD30EC1E727E8D00724552 /* Build configuration list for PBXNativeTarget "TestDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +419,7 @@
 				E4FD30EE1E727E8D00724552 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
