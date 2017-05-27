@@ -8,6 +8,4 @@
 
 import Foundation
 
-class Reposide: NSObject {
-    let item: NSDiscardableContent
-}
+

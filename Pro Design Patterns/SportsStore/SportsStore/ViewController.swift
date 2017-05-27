@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: DatasourceController {
 
     var products = [
         ("Kayak", "A boat for one person", "Watersports", 275.0, 10),
@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         let table = UITableView()
         table.dataSource = self
         table.backgroundColor = .white
+        table.delaysContentTouches = false
         return table
     }()
     
